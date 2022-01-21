@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Spofitycall";
+}
+
+<h2>Spofitycall</h2>
+
+
+<button id="btnpost" class="btn btn-primary">Submit this</button>
+
+
+@section scripts{
+<script src="~/Content/js/cookie.js"></script>
+<script>
+
+$(document).ready(function () {
+
+    $("#btnpost").click(function () {
+        //alert("anupm");
+        //debugger
+        setAccessSpotify();
+    });
+
+    function setAccessSpotify()
+    {
+        var flg = 0;
+        var myval = $.cookie("stoken");
+        if(myval == null || myval == NaN || myval == undefined)
+        {
+            flg = 1;
+            var left = ($(window).width() / 2) - (300);
+            var top = ($(window).height() / 2) - ($(window).height() / 4);
+            window.open("/home/authorizespotify", "_blank", "toolbar=yes,scrollbars=yes,resizable=no,top=" + top + ",left=" + left + ",width=600,height=500");
+        }
+        return flg;
+    }
+});
+
+</script>
+    }

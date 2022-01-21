@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "AuthorizeZoom";
+}
+
+<h2>AuthorizeZoom</h2>
+
+<button id="zoomforward">
+    <img src="https://marketplacecontent.zoom.us/zoom_marketplace/img/add_to_zoom.png" height="32" alt="Add to ZOOM" />
+</button>
+<h3></h3>
+<div class="row">
+    <div class="col-md-12">
+        <ul id="zoomcloudfiles">
+
+        </ul>
+    </div>
+
+</div>
+
+@section scripts{
+
+<script>
+    $(document).on("click", "#zoomforward", function (e) {
+
+        var left = ($(window).width() / 2) - (350);
+        var top = ($(window).height() / 2) - ($(window).height() / 4);
+        window.open("/home/ZoomRedirect", "_blank", "toolbar=yes,scrollbars=yes,resizable=no,top=" + top + ",left=" + left + ",width=700,height=500");
+
+    });
+
+    function getZoomfiles(Link, Filename) {
+        if (Filename.length > 0) {
+            for (var i = 0; i < Filename.length; i++) {
+                $("#zoomcloudfiles").append("<li><strong>" + Filename[i] + "</strong> : " + Link[i] + "</li>");
+            }
+        }
+        else {
+            $("#zoomcloudfiles").text("No file selected");
+        }
+        //document.getElementById("zoomcloudfiles").innerText = data;
+    }
+</script>
+
+}

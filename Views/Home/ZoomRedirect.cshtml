@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "ZoomRedirect";
+}
+
+<h2>ZoomRedirect</h2>
+@*http://localhost:62914/Home/ZoomRedirect?code=k6AqdYCqUX_kOoe__0oSnWxzsnHMtoEwQ*@
+<div id="tok">
+    @{
+        if (ViewBag.code != null)
+        {
+            <text> @ViewBag.code </text>
+        }
+    }
+
+</div>
+<div>
+    @using (Html.BeginForm("ZoomRedirect", "Home", FormMethod.Post))
+    {
+        if (ViewBag.code != null)
+        {
+            <input type = "text" id = "itext" name = "itext" value = "@ViewBag.code" class="form-control" />
+        }
+        <input type="submit" id="sub" value="Submit" class="btn btn-primary" />
+    }
+
+</div>
+@section scripts{
+    
+}

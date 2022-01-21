@@ -1,0 +1,37 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SpotifyRedirect</title>
+</head>
+<body>
+    <div>
+        Spotifyview
+    </div>
+    <br />
+    <div>Token = </div>
+    <div id="tok">
+
+    </div>
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var hash = window.location.hash;
+            var hash2 = hash.substring(1, hash.length);
+            var token = hash2.split('&');
+            var val1 = (token[0].split('='))[1];
+
+            $("#tok").text(val1);
+            //window.location.href = "/home/DropboxToken?" + hash2;
+        });
+    </script>
+</body>
+
+</html>
